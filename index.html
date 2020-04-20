@@ -11,6 +11,7 @@
     <body>
         
         <section class="zoom">
+			<div id="layerZ"></div>
             <img src="imgs/text1.png" id="text" alt="">
             <img src="imgs/S-layer2.png" id="layer2" alt="">
             <img src="imgs/S-layer1b-min.png" id="layer1" alt="">
@@ -41,7 +42,7 @@
 
             <div id="contentintro"> 
                 <h1> About me</h1>
-                <h2> My name is Nathalie and as a Creatve Media and Game technologies student I'm learning a variety of skills to enhance experiences and inspire users. I'm interested in serious gaming and E-learning and currently looking for an internship! </h2>
+                <h2> My name is Nathalie and as a Creative Media and Game technologies student I'm learning a variety of skills to enhance experiences and inspire users. I'm interested in serious gaming and E-learning and currently looking for an internship! </h2>
                 <a id="CVbutton" href="/pages/CV_page.html">Visit my CV here!</a>
             </div>
         </section>
@@ -56,7 +57,7 @@
 							<figcaption>
 								<h2 class="photostack-title">Open day!</h2>
 								<div class="photostack-back">
-									<p>11-10-2019 Tonight I helped at the open day of my university. I was actually invited there by one of the teachers to showcase a project from the first year</p>
+									<p>11-10-2019 Tonight I helped at the open day of my university. I was actually invited there by one of the teachers to showcase a project from the first year.</p>
 								</div>
 							</figcaption>
 						</figure>
@@ -74,7 +75,7 @@
 							<figcaption>
 								<h2 class="photostack-title">Team project December</h2>
 								<div class="photostack-back">
-									<p>I´m currently working at a team project. We´re making a game that explains the different CMGT roles to the visitors of the open day. The team is amazing and I´m hoping for a good grade!</p>
+									<p>5-12-2019 I´m currently working at a team project. We´re making a game that explains the different CMGT roles to the visitors of the open day. The team is amazing and I´m hoping for a good grade!</p>
 								</div>
 							</figcaption>
 						</figure>
@@ -83,7 +84,7 @@
 							<figcaption>
 								<h2 class="photostack-title">Open Sound Control</h2>
 								<div class="photostack-back">
-									<p>During the course prototyping I learn about how to use simple technology to test complex systems. Today I learned how to let my phone communicate with a unity project on my laptop.</p>
+									<p>7-1-2020 During the course prototyping I learn about how to use simple technology to test complex systems. Today I learned how to let my phone communicate with a unity project on my laptop.</p>
 								</div>
 							</figcaption>
 						</figure>
@@ -92,7 +93,7 @@
 							<figcaption>
 								<h2 class="photostack-title">Meet Kibi!</h2>
 								<div class="photostack-back">
-									<p>For project start-up we had 3 weeks to build a succesful concept to win the attention of a dragonsden filled with succesfull profesionals from the workfield and guess what? We won!!</p>
+									<p>6-3-2020 For project start-up we had 3 weeks to build a succesful concept to win the attention of a dragons' den filled with succesfull profesionals from the workfield and guess what? We won!!</p>
 								</div>
 							</figcaption>
 						</figure>
@@ -229,6 +230,16 @@
 			document.getElementsByTagName("body")[0].style.overflowY = "auto";
 		});	
 			
+		//Dynamic appearance video
+		const box = document.querySelector("#layer1");
+		//const vidBox = box.getBoundingClientRect();
+		//console.log(box);
+			
+		window.addEventListener("scroll", function() {
+			console.log(window.innerHeight);
+			console.log(box.getBoundingClientRect().bottom);
+		});
+			
         //Following lines enable the parallax zoom at the top
         var layer1 = document.getElementById('layer1')
         scroll = window.pageYOffset;
@@ -259,11 +270,24 @@
             const scrollable = (document.documentElement.scrollHeight - window.innerHeight) /2;
             const scrolled = window.scrollY;
             
-            console.log(scrollable);
-            console.log(scrolled);
-            
-            if((scrolled >= 400) && (scrolled <= 1360)) {
-                console.log("show video");
+            //console.log(scrollable);
+            //console.log(scrolled);
+			
+			//Function checking for min-width of 1920px
+			function myFunction(large) {
+			  if (large.matches) { // If media query matches
+				dMove = true;
+			  } else {
+				dMove = false;
+			  }
+			}
+			var large = window.matchMedia("(min-width: 1920px)")
+			myFunction(large) // Call listener function at run time
+			large.addListener(myFunction) // Attach listener function on state changes
+			
+			//Actually enabeling video
+            if((dMove == true) && (scrolled >= 400) && (scrolled <= 1700) || (scrolled >= 400) && (scrolled <= 1360)){
+				console.log("show video");
                 video.style.opacity = 1.0; 
                 vidClass.style.zIndex = 2000;
             }
@@ -273,6 +297,7 @@
                 vidClass.style.zIndex = 1;
             } 
                 }); 
+			
             
         //Following lines enable the parallax scrolling in the content parts images
         var portrait = document.getElementById('portrait');
