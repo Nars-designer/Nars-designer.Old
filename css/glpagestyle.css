@@ -2,25 +2,8 @@
 	#title a{
 	top: 4%;
 	}}
-@media only screen and (min-width: 1920px) {
-	#title a{
-	top: 4%;
-	}}
-@media only screen and (min-width: 1920px) {
-	#title a{
-	top: 4%;
-	}}
-@media only screen and (min-width: 1920px) {
-	#title a{
-	top: 4%;
-	}}
-@media only screen and (min-width: 1920px) {
-	#title a{
-	top: 4%;
-	}}@media only screen and (min-width: 1920px) {
-	#title a{
-	top: 4%;
-	}}only screen and (min-width: 1920px) {@font-face {
+
+@font-face {
     font-family: 'Santana';
     src: url('../fonts/Santana/Santana.ttf');
     font-weight: 100;
