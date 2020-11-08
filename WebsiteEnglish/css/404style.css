@@ -10,6 +10,7 @@ body{
     margin: 0;
     padding: 0;
 	text-align: center;
+	background-color: #dcdcdc;
 }
 
 #main-img{
@@ -17,15 +18,15 @@ body{
 	width: 20%;
 	margin-top: 50px;
 	margin: 0 auto;
-	color: #FFFFFF;
+	color: #dcdcdc;
 	font-family: 'Santana';
 	padding: 5%;
 }
 
 a{
 	text-decoration: none;
-	background-color: rgba(100, 100, 100, 0.9);
-	color: #FFFFFF;
+	background-color: #484D48;
+	color: #dcdcdc;
 	font-family: 'Santana';
 	padding: 2%;
 }
